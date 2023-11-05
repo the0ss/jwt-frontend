@@ -1,0 +1,10 @@
+<nav>
+    <div class="topnav">
+        <a class="active" routerLink="/home">Home</a>
+        <a *ngIf="service.roleMatch('ADMIN')" routerLink="/admin">Admin Dash</a>
+        <a *ngIf="service.roleMatch('USER')" routerLink="/user">User Dash</a>
+        <button *ngIf="isLoggedIn()" class="btn btn-danger" (click)="logout()">Logout</button>
+        <button *ngIf="!isLoggedIn()" routerLink="/login" class="btn btn-success">Login</button>
+    </div>
+</nav>
+<router-outlet></router-outlet>
